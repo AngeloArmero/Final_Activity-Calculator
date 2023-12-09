@@ -1,47 +1,52 @@
-
 <!DOCTYPE html>
 <html>
-    <body>
-        <form name="form">
-            Input: <input type="number" name="number" placeholder="Enter a number">
-            <input type="button" value="Submit" onclick="checkprime()">
-            <p id="checkprime"> </p>
-              <p id="result"></p>
-        <p id="even"></p>
-        <p id="odd"></p>
-        </form>
-        <script>
-            function checkprime() {
-                var i,flag=0;
-                var p=" ";
-                var a=parseInt(document.form.number.value);
-                for(i=1;i<=a;i++)
-                {
-                    if(a%i==0)
-                    {
-                        flag+=1;
-                    }
-                if(flag==2)
-                {p=a+" is prime number"; }
-                
-                else{  p=a+" is not a prime number";}
-                }
-                var d=document.getElementById("checkprime").innerHTML=p;
-                var evenNum = "";
-                var oddNum = "";
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>IP-Final-Activity-Calculator object</title>
+</head>
+<body>
+<script>
 
-                for (var i = 1; i <= a; i++) {
-                    if (i % 2 === 1) {
-                        evenNum += i + " ";
-                    } else {
-                        oddNum += i + " ";
-                    }
-}
+ function add(num1,num2){
+    try{
+       return Number (num1) + Number (num2);
+    }catch(error){
+        console.log('Error! Invalid input for Addition! ' + error);
+    }
+ }
+ function subtract(num1,num2){
+    try{
+       return Number (num1) - Number (num2);
+    }catch(error){
+        console.log('Error! Invalid input for Subtraction! ' + error);
+    }
+ }
+ function multiplication(num1,num2){
+    try{
+       return Number (num1) * Number (num2);
+    }catch(error){
+        console.log('Error! Invalid input for Multiplication! ' + error);
+    }
+ }
+ function division(num1,num2){
+    try{
+        if(num2 == 0){
+            throw new Error("Cannot divide by zero")
+        }
+       return Number (num1) / Number (num2);
+    }catch(error){
+        console.log('Error! Invalid input for Division! ' + error);
+        return "Error Occured";
+    }
+ }
+const num1 = 100;
+const num2=50;
+console.log(add (num1,num2))
+console.log(subtract(num1,num2))
+console.log(multiplication(num1,num2))
+console.log(division(num1,num2))
 
-                document.getElementById("even").innerHTML = "Even numbers: " + evenNum.trim();
-                document.getElementById("odd").innerHTML = "Odd numbers: " + oddNum.trim();
-            }
-        </script>
-      
-    </body>
+</script>
+</body>
 </html>
